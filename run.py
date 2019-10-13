@@ -1,4 +1,8 @@
 from flask import Flask
+from templates import app
+#Load this config object for development mode
+app.config.from_object('configurations.DevelopmentConfig')
+app.run()
 
 app = Flask(__name__)
 @app.route('/')
@@ -8,10 +12,3 @@ def hello_world():
 
 if __name__ == '__main__':
     app.run()
-# if __name__ == '__main__':
-#     app.run(host='127.0.0.1:5000')
-
-from templates import app
-#Load this config object for development mode
-app.config.from_object('configurations.DevelopmentConfig')
-app.run()
